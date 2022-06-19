@@ -24,8 +24,10 @@ public class InternalProvider implements IEconomyProvider{
 
     @Override
     public void give(CommandSender player, Player target, double amount) {
+
         //Save the new money balance into player cache
         plugin.getPlayerCache().get(target.getUniqueId()).setMoney(plugin.getPlayerCache().get(target.getUniqueId()).getMoney() + amount);
+
         message.send(target, "&aYou have received &6" + amount + " coins &eof &bConsole");
         player.sendMessage(message.colorize("&b" + target.getName() + " &ahas received &6" + amount + " coins!"));
 
@@ -59,13 +61,17 @@ public class InternalProvider implements IEconomyProvider{
 
         //Save the new money balance into player cache.
         plugin.getPlayerCache().get(target.getUniqueId()).setMoney(plugin.getPlayerCache().get(target.getUniqueId()).getMoney() - amount);
+
         message.send(target, "&6" + amount + " coins &chave been removed from the &bConsole.");
         player.sendMessage(message.colorize("&6" + amount + " coins &aremoved to &b" + target.getName()));
     }
 
     @Override
     public void set(CommandSender player, Player target, double amount) {
+
+        //Save the new money balance into target cache.
         plugin.getPlayerCache().get(target.getUniqueId()).setMoney(amount);
+
         message.send(target, "&eYour new money balance is &6" + amount + " coins");
         player.sendMessage(message.colorize("&aThe new balance of &b" + target.getName() + " &aare &6" + amount + " coins"));
     }
