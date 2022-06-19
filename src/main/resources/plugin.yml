@@ -1,0 +1,7 @@
+name: EconomyPlugin
+version: '${version}'
+main: com.reussy.exodus.economy.plugin.EconomyPlugin
+api-version: 1.18
+depend: [ Vault ]
+authors: [ reussy ]
+description: A simple plugin to give, view and pay with user balance.
